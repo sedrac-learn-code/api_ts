@@ -1,0 +1,3 @@
+
+TEST
+npx prisma generate --schema=/test/prisma/schema.prisma
