@@ -1,12 +1,13 @@
 import { FastifyTypeInstance } from "../type";
-import fs from "fs";
 import pump from "pump";
+import fs from "fs";
 
 export async function uploadRoute(app: FastifyTypeInstance) {
 
     app.post("/upload", {
         schema: {
             tags: ["Upload"],
+            consumes: ['multipart/form-data'],
         }
     }, async (req, reply) => {
         const data = await req.file();
