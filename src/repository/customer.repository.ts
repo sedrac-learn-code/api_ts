@@ -14,6 +14,12 @@ export class CustomerRepository implements CrudOperation<Customer, CustomerDTO> 
         return this.instance.customer.findMany();
     }
 
+    async findById(id: number): Promise<Customer | null> {
+        return this.instance.customer.findFirst({
+             where: { id },
+        });
+    }    
+
     async create(data: CustomerDTO): Promise<Customer> {
         return this.instance.customer.create({ data });
     }
